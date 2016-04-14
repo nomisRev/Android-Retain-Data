@@ -1,0 +1,17 @@
+package be.vergauwen.simon.androidretaindata.ui
+
+import be.vergauwen.simon.androidretaindata.core.model.GithubRepo
+import be.vergauwen.simon.himurakotlin.MVPContract
+
+interface MainContract {
+  interface View : MVPContract.View {
+    fun addRepo(repo: GithubRepo)
+    fun showError(t: Throwable)
+  }
+
+  interface Presenter<V : View> : MVPContract.Presenter<V> {
+    fun loadRepos(reload: Boolean)
+  }
+
+  interface Component<V : View, P : Presenter<V>> : MVPContract.Component<V, P>
+}
