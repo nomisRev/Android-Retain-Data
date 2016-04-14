@@ -1,11 +1,11 @@
 package be.vergauwen.simon.androidretaindata.ui
 
 import android.os.Bundle
-import android.util.Log
 import be.vergauwen.simon.androidretaindata.KotlinApplication
 import be.vergauwen.simon.androidretaindata.R
 import be.vergauwen.simon.androidretaindata.core.model.GithubRepo
 import be.vergauwen.simon.himurakotlin.MVPDaggerActivity
+import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : MVPDaggerActivity<MainContract.View, MainPresenter, MainComponent>(), MainContract.View {
 
@@ -21,10 +21,10 @@ class MainActivity : MVPDaggerActivity<MainContract.View, MainPresenter, MainCom
   }
 
   override fun addRepo(repo: GithubRepo) {
-    Log.v("MainActivity", repo.name)
+    text_view.text = repo.name
   }
 
   override fun showError(t: Throwable) {
-    Log.e("MainActivity", t.message)
+    text_view.text = t.message
   }
 }

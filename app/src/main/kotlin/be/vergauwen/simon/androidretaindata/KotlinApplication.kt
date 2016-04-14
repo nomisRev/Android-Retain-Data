@@ -6,11 +6,11 @@ import be.vergauwen.simon.androidretaindata.core.di.ApplicationModule
 import be.vergauwen.simon.androidretaindata.core.di.DaggerApplicationComponent
 import be.vergauwen.simon.androidretaindata.core.di.ServiceModule
 
-class KotlinApplication : Application(){
+open class KotlinApplication : Application(){
 
   val component by lazy { createComponent() }
 
-  fun createComponent() : ApplicationComponent = DaggerApplicationComponent.builder()
+  open fun createComponent() : ApplicationComponent = DaggerApplicationComponent.builder()
       .serviceModule(ServiceModule())
       .applicationModule(ApplicationModule(this))
       .build()
