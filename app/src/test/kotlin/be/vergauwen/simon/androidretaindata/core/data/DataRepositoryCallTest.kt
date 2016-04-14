@@ -60,7 +60,7 @@ class DataRepositoryCallTest {
     var result : List<GithubRepo>? = null
     val latch = CountDownLatch(1);
 
-    dataRepo.getRepos(reload, object : Callback<List<GithubRepo>> {
+    dataRepo.getData(reload, object : Callback<List<GithubRepo>> {
       override fun onResponse(call: Call<List<GithubRepo>>?,
           response: Response<List<GithubRepo>>?) {
         result = response?.body()

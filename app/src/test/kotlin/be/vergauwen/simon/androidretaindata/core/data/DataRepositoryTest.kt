@@ -27,7 +27,7 @@ class DataRepositoryTest {
   @Test
   fun testLoad() {
     val sub = TestSubscriber<List<GithubRepo>>()
-    dataRepo.getRepos(true).toBlocking().subscribe(sub)
+    dataRepo.getData(true).toBlocking().subscribe(sub)
     sub.onNextEvents // emulate getting onNext to test onComplete()
     sub.assertNoErrors()
     sub.assertCompleted()
@@ -57,7 +57,7 @@ class DataRepositoryTest {
 
   private fun getRepos(reload: Boolean): List<GithubRepo> {
     val sub = TestSubscriber<List<GithubRepo>>()
-    dataRepo.getRepos(reload).toBlocking().subscribe(sub)
+    dataRepo.getData(reload).toBlocking().subscribe(sub)
     val result = sub.onNextEvents
     return if (result.size < 1) throw IndexOutOfBoundsException("Result from observable was empty")
     else result[0]

@@ -8,11 +8,10 @@ import retrofit2.Response
 
 class DataRepository(private val githubAPI: GithubAPI) {
 
-
   private var result: Response<List<GithubRepo>>? = null
   private var call: Call<List<GithubRepo>>? = null
 
-  fun getRepos(reload: Boolean, callback: Callback<List<GithubRepo>>) {
+  fun getData(reload: Boolean, callback: Callback<List<GithubRepo>>) {
     if (reload) {
       result = null
       call = null
@@ -24,15 +23,15 @@ class DataRepository(private val githubAPI: GithubAPI) {
             response: Response<List<GithubRepo>>?) {
           this@DataRepository.call = call
           this@DataRepository.result = response
-          callback.onResponse(githubAPI.getReposCall(),result)
+          callback.onResponse(call, result)
         }
 
         override fun onFailure(call: Call<List<GithubRepo>>?, t: Throwable?) {
-          callback.onFailure(call,t)
+          callback.onFailure(call, t)
         }
       })
     } else {
-      callback.onResponse(githubAPI.getReposCall(),result)
+      callback.onResponse(call, result)
     }
   }
 }

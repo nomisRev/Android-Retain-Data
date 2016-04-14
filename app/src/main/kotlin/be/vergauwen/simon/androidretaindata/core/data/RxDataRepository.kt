@@ -10,21 +10,20 @@ class RxDataRepository(private val githubAPI: GithubAPI) {
 
   private var request: ConnectableObservable<List<GithubRepo>>? = null
 
-  fun getRepos(reload: Boolean): Observable<List<GithubRepo>> {
+  fun getData(reload: Boolean): Observable<List<GithubRepo>> {
     if (reload) {
       clearData()
     }
 
     if (request == null) {
-      val networkCall = githubAPI.getRepos().subscribeOn(Schedulers.io())
-      request = networkCall.first().replay()
+      request = githubAPI.getRepos().subscribeOn(Schedulers.io()).first().replay()
       request!!.connect() //start doing the background call
     }
 
     return request!!
   }
 
-  private fun clearData(){
+  private fun clearData() {
     request?.connect { it.unsubscribe() }
     request = null
   }

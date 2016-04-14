@@ -12,7 +12,7 @@ class MainPresenter @Inject constructor(private val transfomers: Transformers, p
 : MVPPresenter<MainContract.View>(), MainContract.Presenter<MainContract.View> {
 
   override fun loadRepos(reload: Boolean) {
-    dataRepository.getRepos(reload)
+    dataRepository.getData(reload)
         .compose(
             transfomers.applyIOSchedulers<List<GithubRepo>>())
         .flatMap { Observable.from(it) }
