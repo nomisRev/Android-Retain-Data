@@ -14,12 +14,12 @@ import java.util.concurrent.CountDownLatch
 class DataRepositoryCallTest {
 
   lateinit var githubAPI: MockGithubAPI
-  lateinit var dataRepo: DataRepositoryCall
+  lateinit var dataRepo: DataRepository
 
   @Before
   fun setUp() {
     githubAPI = MockGithubAPI()
-    dataRepo = DataRepositoryCall(githubAPI)
+    dataRepo = DataRepository(githubAPI)
   }
 
   @Test

@@ -1,7 +1,7 @@
 package be.vergauwen.simon.androidretaindata.core.di
 
 import be.vergauwen.simon.androidretaindata.BuildConfig
-import be.vergauwen.simon.androidretaindata.core.data.DataRepository
+import be.vergauwen.simon.androidretaindata.core.data.RxDataRepository
 import be.vergauwen.simon.androidretaindata.core.service.GithubAPI
 import dagger.Module
 import dagger.Provides
@@ -43,6 +43,6 @@ open class ServiceModule {
 
   @ApplicationScope
   @Provides
-  open fun provideDataRepository(githubAPI: GithubAPI): DataRepository = DataRepository(githubAPI)
+  open fun provideDataRepository(githubAPI: GithubAPI): RxDataRepository = RxDataRepository(githubAPI)
 
 }

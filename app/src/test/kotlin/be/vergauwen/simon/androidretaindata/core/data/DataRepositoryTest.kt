@@ -10,12 +10,12 @@ import rx.observers.TestSubscriber
 class DataRepositoryTest {
 
   lateinit var githubAPI: MockGithubAPI
-  lateinit var dataRepo: DataRepository
+  lateinit var dataRepo: RxDataRepository
 
   @Before
   fun setUp() {
     githubAPI = MockGithubAPI()
-    dataRepo = DataRepository(githubAPI)
+    dataRepo = RxDataRepository(githubAPI)
   }
 
   @Test
