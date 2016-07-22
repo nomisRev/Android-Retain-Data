@@ -3,6 +3,10 @@ package be.vergauwen.simon.androidretaindata.ui
 import be.vergauwen.simon.androidretaindata.core.model.GithubRepo
 import be.vergauwen.simon.himurakotlin.MVPContract
 
+/**
+ * Created by Simon Vergauwen. github.com/nomisRev
+ */
+
 interface MainContract {
   interface View : MVPContract.View {
     fun addRepo(repo: GithubRepo)

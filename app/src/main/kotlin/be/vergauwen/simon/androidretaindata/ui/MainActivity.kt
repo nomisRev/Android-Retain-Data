@@ -7,6 +7,10 @@ import be.vergauwen.simon.androidretaindata.core.model.GithubRepo
 import be.vergauwen.simon.himurakotlin.MVPDaggerActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
+/**
+ * Created by Simon Vergauwen. github.com/nomisRev
+ */
+
 class MainActivity : MVPDaggerActivity<MainContract.View, MainPresenter, MainComponent>(), MainContract.View {
 
   override fun createComponent(): MainComponent = DaggerMainComponent.builder().applicationComponent(
@@ -16,7 +20,7 @@ class MainActivity : MVPDaggerActivity<MainContract.View, MainPresenter, MainCom
     super.onCreate(savedInstanceState)
     setContentView(R.layout.main_activity)
 
-    //Least complex example. SavedInstance == null --> config change
+    //Least complex example. SavedInstance == null --> config change so use old network data
     presenter.loadRepos(savedInstanceState==null)
   }
 

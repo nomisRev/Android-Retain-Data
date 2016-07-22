@@ -23,6 +23,9 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
         test.java.srcDirs += 'src/test/kotlin'
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 kapt {
@@ -44,7 +47,7 @@ dependencies {
     compile (libraries.android_appcompat,
         libraries.kotlin,
         libraries.dagger,
-        libraries.rxkotlin,
+        libraries.rxjava,
         libraries.rxandroid,
         libraries.retrofit2,
         libraries.retrofit2_gson,

@@ -28,6 +28,7 @@ dependencies {
     provided "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     provided "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    provided libraries.rxjava
 }
 buildscript {
     ext.kotlin_version = '1.0.1-2'

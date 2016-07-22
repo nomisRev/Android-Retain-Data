@@ -6,6 +6,10 @@ import rx.Observable
 import rx.observables.ConnectableObservable
 import rx.schedulers.Schedulers
 
+/**
+ * Created by Simon Vergauwen. github.com/nomisRev
+ */
+
 class RxDataRepository(private val githubAPI: GithubAPI) {
 
   private var request: ConnectableObservable<List<GithubRepo>>? = null

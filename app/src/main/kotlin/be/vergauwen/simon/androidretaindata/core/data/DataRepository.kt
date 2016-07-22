@@ -6,6 +6,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * Created by Simon Vergauwen. github.com/nomisRev
+ */
+
 class DataRepository(private val githubAPI: GithubAPI) {
 
   private var result: Response<List<GithubRepo>>? = null

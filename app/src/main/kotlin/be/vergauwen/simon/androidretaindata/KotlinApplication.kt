@@ -9,6 +9,10 @@ import be.vergauwen.simon.androidretaindata.core.di.ServiceModule
 import com.squareup.leakcanary.LeakCanary
 import com.squareup.leakcanary.RefWatcher
 
+/**
+ * Created by Simon Vergauwen. github.com/nomisRev
+ */
+
 open class KotlinApplication : Application(){
 
   var refWatcher : RefWatcher? = null

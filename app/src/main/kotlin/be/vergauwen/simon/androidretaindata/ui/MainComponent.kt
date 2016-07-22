@@ -7,5 +7,5 @@ import dagger.Component
 @ActivityScope
 @Component(dependencies = arrayOf(ApplicationComponent::class))
 interface MainComponent : MainContract.Component<MainContract.View, MainPresenter>{
-  override fun presenter(): MainPresenter
+  override val presenter : MainPresenter
 }
